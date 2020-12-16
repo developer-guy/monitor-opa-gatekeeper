@@ -1,0 +1,10 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: PrivilegedContainers
+metadata:
+  name: privilegedcontainers
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        kinds: ["Pod"]
