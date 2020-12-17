@@ -51,4 +51,6 @@ $ open localhost:3000 # username: admin password: prom-operator
 ```
 After you opened the Grafana in the browser, you need to import the your json file, in order to do that copy your [dashoard.json](monitoring/dashboard.json) add paste to the import section of the grafana dashboard, then vola !
 
+> Credit: https://promcat.io/apps/open-policy-agent 
+
 ![dashboard](dashboard.png)
