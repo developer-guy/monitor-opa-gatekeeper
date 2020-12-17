@@ -19,7 +19,7 @@ $ helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack 
 ```
 
 # Intall ServiceMonitor
-You need to scrape gatekeeper metrics, in order to that you need a resource which is kind ServiceMonitor and you need a new port which is "metrics" in this case to the gatekeeper service like the following:
+You need to scrape gatekeeper metrics, in order to do that you need a resource which is kind ServiceMonitor and you need a new port which is "metrics" in this case to the gatekeeper service like the following:
 ```yaml
 ports:
 - name: https
@@ -28,6 +28,7 @@ ports:
 - name: metrics                                                                
   port: 8888
 ```
+After you edit the service , create the ServiceMonitor resource
 ```bash
 $ kubectl apply -f monitoring/servicemonitor.yaml
 ```
@@ -48,6 +49,6 @@ $ kubectl apply -f samples/
 $ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3000:80
 $ open localhost:3000 # username: admin password: prom-operator
 ```
-After you opened the dashboar, you need to import the your dashboard, in order to do that copy your [dashoard.json](monitoring/dashboard.json) add paste to the import section of the grafana dashboard, then vola !
+After you opened the Grafana in the browser, you need to import the your json file, in order to do that copy your [dashoard.json](monitoring/dashboard.json) add paste to the import section of the grafana dashboard, then vola !
 
 ![dashboard](dashboard.png)
